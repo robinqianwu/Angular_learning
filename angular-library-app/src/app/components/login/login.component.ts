@@ -5,7 +5,6 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
-  standalone: false,
   template: `
     <div class="login-container">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
