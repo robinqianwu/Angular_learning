@@ -3,6 +3,7 @@ import { BookService, Book } from '../../services/book.service';
 
 @Component({
   selector: 'app-book-list',
+  standalone: false,
   template: `
     <div class="book-list-container">
       <h2>图书列表</h2>
