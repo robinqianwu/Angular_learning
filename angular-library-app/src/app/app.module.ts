@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { RandomTableComponent } from './components/testComponents/random-table/random-table.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BookListComponent } from './components/book-list/book-list.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    RandomTableComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,19 @@
+<div class="table-container">
+  <h2>Random Numbers Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let num of numbers; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ num }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="generateRandomNumbers()">Generate Again</button>
+</div>
