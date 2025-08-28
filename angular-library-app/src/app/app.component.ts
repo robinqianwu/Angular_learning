@@ -28,4 +28,9 @@ export class AppComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  //handle event from child component
+  handleNewData(event: string) {
+    console.log("Received event from RandomTableComponent:", event);
+  }
 }

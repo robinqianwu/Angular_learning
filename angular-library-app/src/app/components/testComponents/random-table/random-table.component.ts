@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-random-table',
@@ -12,9 +12,15 @@ export class RandomTableComponent implements OnInit {
   numbers: number[] = [];
 
   @Input() tableTitle : string = "table default title";
+  @Output() newData = new EventEmitter<string>(); 
 
   ngOnInit(): void {
     this.generateRandomNumbers();
+  }
+
+  passData() {
+    //emit 中的string实在newData中定义的类型
+    this.newData.emit(new Date().toISOString());
   }
 
   generateRandomNumbers(): void {
