@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-random-table',
@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomTableComponent implements OnInit {
   numbers: number[] = [];
+
+  @Input() tableTitle : string = "table default title";
 
   ngOnInit(): void {
     this.generateRandomNumbers();

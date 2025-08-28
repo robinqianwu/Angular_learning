@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { RandomTableComponent } from './components/testComponents/random-table/random-table.component';
@@ -16,7 +16,9 @@ export class AppComponent {
     private router: Router
   ) {}
 
-  headerText: string = "This is a text value from app.component.ts";
+  @Input() headerText: string = "This is a text value from app.component.ts";
+
+  headerInputText: string = "A given title from app.component.ts headerInputText";
   
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();

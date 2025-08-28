@@ -23,7 +23,7 @@ import { RandomTableComponent } from './components/testComponents/random-table/r
     RouterModule,
     RandomTableComponent
   ],
-  providers: [],
+  providers: [], //可以添加定义的Serivces，或者Services自己可以利用Injectable的providedIn:'root'来自动注册
   bootstrap: [AppComponent]
 })
 export class AppModule { }

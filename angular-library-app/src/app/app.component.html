@@ -8,5 +8,6 @@
     </nav>
     <router-outlet></router-outlet>
     <h1 class="testHeaderText">{{headerText}}</h1>
-    <app-random-table></app-random-table>
+    <!-- an example of forward the value from caller to selector attribute tableTitle -->
+    <app-random-table [tableTitle]="headerInputText"></app-random-table>
 </div>
