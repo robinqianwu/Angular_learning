@@ -1,0 +1,11 @@
+<div class="app-container">
+    <nav class="navbar" *ngIf="isLoggedIn">
+        <div class="nav-brand">图书管理系统</div>
+        <button class="nav-button" (click)="logout()">退出</button>
+    </nav>
+     <nav class="navbar" *ngIf="!isLoggedIn">
+        <div class="nav-brand">图书管理系统</div>
+    </nav>
+    <router-outlet></router-outlet>
+    <h1 class="testHeaderText">{{headerText}}</h1>
+</div>
