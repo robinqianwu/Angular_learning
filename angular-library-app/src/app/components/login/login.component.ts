@@ -122,7 +122,7 @@ export class LoginComponent {
           this.router.navigate(['/books']);
         },
         error: error => {
-          console.error('Login failed:', error);
+          console.error('Login failed:', JSON.stringify(error));
           // 这里可以添加错误处理，比如显示错误消息
         }
       });

@@ -64,7 +64,7 @@ export class BookListComponent implements OnInit {
         this.books = books;
       },
       error: (error) => {
-        console.error('Error loading books:', error);
+        console.error('Error loading books:', JSON.stringify(error));
       }
     });
   }
