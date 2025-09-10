@@ -14,7 +14,7 @@ export interface Book {
   providedIn: 'root'
 })
 export class BookService {
-  private apiUrl = 'https://localhost:5001/api/book';
+  private apiUrl = 'http://localhost:5000/api/book';
 
   constructor(private http: HttpClient) { }
 
