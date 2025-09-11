@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { RandomTableComponent } from './components/test-components/random-table/random-table.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RandomTableComponent } from './components/test-components/random-table/
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    RandomTableComponent
+    RandomTableComponent,
+    ErrorPageComponent
   ],
   providers: [], //可以添加定义的Serivces，或者Services自己可以利用Injectable的providedIn:'root'来自动注册
   bootstrap: [AppComponent]
