@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
-import { RandomTableComponent } from './components/testComponents/random-table/random-table.component';
+import { RandomTableComponent } from './components/test-components/random-table/random-table.component';
 
 @NgModule({
   declarations: [

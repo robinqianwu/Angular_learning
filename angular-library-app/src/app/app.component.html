@@ -9,5 +9,7 @@
     <router-outlet></router-outlet>
     <h1 class="testHeaderText">{{headerText}}</h1>
     <!-- an example of forward the value from caller to selector attribute tableTitle -->
+    <!-- tableTitle is an input property in RandomTableComponent, headerInputText is a local variable from AppComponent -->
+    <!-- newData is an output property (event emitter) in RandomTableComponent, handleNewData is a local function from AppComponent -->
     <app-random-table [tableTitle]="headerInputText" (newData)="handleNewData($event)"></app-random-table>
 </div>

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { RandomTableComponent } from './components/testComponents/random-table/random-table.component';
+import { RandomTableComponent } from './components/test-components/random-table/random-table.component';
 
 @Component({
   selector: 'app-root',
