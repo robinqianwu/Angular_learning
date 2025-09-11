@@ -10,6 +10,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RandomTableComponent implements OnInit {
   numbers: number[] = [];
+  hasSeven: boolean = false;
+  cssClasses: string[] = [];
 
   @Input() tableTitle : string = "table default title";
   @Output() newData = new EventEmitter<string>(); 
@@ -24,10 +26,20 @@ export class RandomTableComponent implements OnInit {
   }
 
   generateRandomNumbers(): void {
+    this.hasSeven = false;
     this.numbers = [];
+    this.cssClasses = [];
     for (let i = 0; i < 5; i++) {
       const random = Math.floor(Math.random() * 10) + 1; // 1~10
+      if (random === 7) {
+        this.hasSeven = true;
+      }
       this.numbers.push(random);
+    }
+    if (this.hasSeven) {
+      this.cssClasses.push("header-find-seven");
+    } else {
+      this.cssClasses.push("header-default");
     }
   }
 }

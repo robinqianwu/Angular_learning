@@ -1,7 +1,8 @@
 <div class="table-container">
-  <h2>{{tableTitle}}</h2>
+  <h2>{{tableTitle | uppercase}}</h2>
+  <div *ngIf="hasSeven">There is at least one '7' inside.</div>
   <table>
-    <thead>
+    <thead [ngClass]="cssClasses">
       <tr>
         <th>#</th>
         <th>Number</th>
