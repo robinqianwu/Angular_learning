@@ -1,0 +1,29 @@
+<div class="book-list-container">
+  <div class="header-actions">
+    <h2>图书列表</h2>
+    <button class="add-book-btn" routerLink="/add-book">
+      <span class="icon">+</span>
+      添加新书
+    </button>
+  </div>
+  
+  <div class="books-grid">
+    <div class="book-card" *ngFor="let book of books">
+      <h3>{{ book.title }}</h3>
+      <p><strong>作者：</strong> {{ book.author }}</p>
+      <p><strong>ISBN：</strong> {{ book.isbn }}</p>
+      <p><strong>出版日期：</strong> {{ book.publishDate | date:'yyyy-MM-dd' }}</p>
+      <p><strong>数量：</strong> {{ book.quantity }}</p>
+      <div class="book-actions">
+        <button class="edit-btn" [routerLink]="['/edit-book', book.id]">
+          <span class="icon">✎</span>
+          编辑
+        </button>
+        <button class="delete-btn" (click)="deleteBook(book.id!)">
+          <span class="icon">✖</span>
+          删除
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

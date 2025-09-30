@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 import { RandomTableComponent } from './components/test-components/random-table/random-table.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent
+    BookListComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

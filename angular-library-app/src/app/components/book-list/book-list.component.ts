@@ -1,71 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService, Book } from '../../services/book.service';
+import { Router } from '@angular/router';
+import { BookService } from '../../services/book.service';
+import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-book-list',
   standalone: false,
-  template: `
-    <div class="book-list-container">
-      <h2>图书列表</h2>
-      
-      <div class="books-grid">
-        <div class="book-card" *ngFor="let book of books">
-          <h3>{{ book.title }}</h3>
-          <p><strong>作者：</strong> {{ book.author }}</p>
-          <p><strong>ISBN：</strong> {{ book.isbn }}</p>
-          <p><strong>出版日期：</strong> {{ book.publishDate | date }}</p>
-        </div>
-      </div>
-    </div>
-  `,
-  styles: [`
-    .book-list-container {
-      padding: 20px;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .book-card {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 15px;
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .book-card h3 {
-      margin: 0 0 10px 0;
-      color: #333;
-    }
-
-    .book-card p {
-      margin: 5px 0;
-      color: #666;
-    }
-  `]
+  templateUrl: './book-list.component.html',
+  styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
   books: Book[] = [];
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadBooks();
   }
 
   loadBooks(): void {
-    this.bookService.getAllBooks().subscribe({
+    this.bookService.getBooks().subscribe({
       next: (books) => {
         this.books = books;
       },
       error: (error) => {
-        console.error('Error loading books:', JSON.stringify(error));
+        console.error('加载图书失败', error);
+        // TODO: 添加错误提示
       }
     });
+  }
+
+  deleteBook(id: number): void {
+    if (confirm('确定要删除这本书吗？此操作无法撤销。')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => {
+          this.books = this.books.filter(book => book.id !== id);
+          // TODO: 添加成功提示
+        },
+        error: (error) => {
+          console.error('删除图书失败', error);
+          // TODO: 添加错误提示
+        }
+      });
+    }
   }
 }

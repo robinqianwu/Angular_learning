@@ -1,0 +1,68 @@
+<div class="add-book-container">
+  <h2>添加新书</h2>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="book-form">
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input id="isbn" type="text" formControlName="isbn" placeholder="请输入ISBN">
+      <div *ngIf="bookForm.get('isbn')?.errors?.['required'] && bookForm.get('isbn')?.touched" class="error-message">
+        ISBN是必填项
+      </div>
+      <div *ngIf="bookForm.get('isbn')?.errors?.['pattern'] && bookForm.get('isbn')?.touched" class="error-message">
+        ISBN必须是10-13位数字和连字符的组合
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">书名</label>
+      <input id="title" type="text" formControlName="title" placeholder="请输入书名">
+      <div *ngIf="bookForm.get('title')?.errors?.['required'] && bookForm.get('title')?.touched" class="error-message">
+        书名是必填项
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">作者</label>
+      <input id="author" type="text" formControlName="author" placeholder="请输入作者">
+      <div *ngIf="bookForm.get('author')?.errors?.['required'] && bookForm.get('author')?.touched" class="error-message">
+        作者是必填项
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="publisher">出版社</label>
+      <input id="publisher" type="text" formControlName="publisher" placeholder="请输入出版社">
+    </div>
+
+    <div class="form-group">
+      <label for="publishDate">出版日期</label>
+      <input id="publishDate" type="date" formControlName="publishDate">
+      <div *ngIf="bookForm.get('publishDate')?.errors?.['required'] && bookForm.get('publishDate')?.touched" class="error-message">
+        出版日期是必填项
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">数量</label>
+      <input id="quantity" type="number" formControlName="quantity" min="0">
+      <div *ngIf="bookForm.get('quantity')?.errors?.['required'] && bookForm.get('quantity')?.touched" class="error-message">
+        数量是必填项
+      </div>
+      <div *ngIf="bookForm.get('quantity')?.errors?.['min'] && bookForm.get('quantity')?.touched" class="error-message">
+        数量不能小于0
+      </div>
+    </div>
+
+    <div class="form-group checkbox">
+      <label>
+        <input type="checkbox" formControlName="isAvailable">
+        是否可用
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="secondary-btn" (click)="generateRandomBookData()">生成随机数据</button>
+      <button type="submit" [disabled]="!bookForm.valid" class="primary-btn">添加图书</button>
+    </div>
+  </form>
+</div>
